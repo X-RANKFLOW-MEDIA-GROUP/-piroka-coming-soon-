@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">PIROKA app icon</title>
+  <desc id="desc">Glossy black rounded-square icon with a white pi mark and teal dot.</desc>
+  <defs>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset=".12" stop-color="#667078"/>
+      <stop offset=".28" stop-color="#f5fbff"/>
+      <stop offset=".5" stop-color="#1b2227"/>
+      <stop offset=".72" stop-color="#cfd7dc"/>
+      <stop offset=".88" stop-color="#556068"/>
+      <stop offset="1" stop-color="#f7fbfd"/>
+    </linearGradient>
+    <linearGradient id="glass" x1=".12" y1=".05" x2=".9" y2=".95">
+      <stop offset="0" stop-color="#1b2329"/>
+      <stop offset=".48" stop-color="#06090b"/>
+      <stop offset="1" stop-color="#0a0e11"/>
+    </linearGradient>
+    <linearGradient id="mark" x1=".2" y1="0" x2=".75" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset=".52" stop-color="#f7f8f8"/>
+      <stop offset="1" stop-color="#dce1e4"/>
+    </linearGradient>
+    <radialGradient id="teal" cx=".35" cy=".28" r=".8">
+      <stop offset="0" stop-color="#43fff2"/>
+      <stop offset=".3" stop-color="#12e8d9"/>
+      <stop offset="1" stop-color="#00a99f"/>
+    </radialGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".42"/>
+      <stop offset=".34" stop-color="#ffffff" stop-opacity=".08"/>
+      <stop offset=".64" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="outerShadow" x="-30%" y="-30%" width="160%" height="180%">
+      <feDropShadow dx="0" dy="9" stdDeviation="8" flood-color="#000" flood-opacity=".7"/>
+    </filter>
+    <filter id="markShadow" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="4" stdDeviation="3.5" flood-color="#000" flood-opacity=".62"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="1.5" flood-color="#ffffff" flood-opacity=".38"/>
+    </filter>
+    <filter id="dotGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#00e7d7" flood-opacity=".38"/>
+    </filter>
+    <clipPath id="clip"><rect x="21" y="21" width="214" height="214" rx="52"/></clipPath>
+  </defs>
+
+  <g filter="url(#outerShadow)">
+    <rect x="10" y="10" width="236" height="236" rx="61" fill="#11161a" stroke="url(#rim)" stroke-width="7"/>
+    <rect x="16.5" y="16.5" width="223" height="223" rx="56" fill="none" stroke="#f3f7f9" stroke-opacity=".34" stroke-width="2"/>
+    <rect x="21" y="21" width="214" height="214" rx="52" fill="url(#glass)" stroke="#0d1114" stroke-width="2"/>
+  </g>
+
+  <g clip-path="url(#clip)">
+    <path d="M22 40C58 16 130 12 221 21C183 51 131 78 49 125C33 135 24 147 15 163V59C15 51 17 45 22 40Z" fill="url(#shine)" opacity=".72"/>
+    <ellipse cx="124" cy="225" rx="95" ry="22" fill="#9ed6d6" opacity=".07"/>
+  </g>
+
+  <g filter="url(#markShadow)" fill="url(#mark)" stroke="#ffffff" stroke-opacity=".66" stroke-width="1.2" stroke-linejoin="round">
+    <path d="M77 104C93 93 112 86 132 83C150 80 167 78 181 75C188 74 194 76 197 81C200 86 200 92 198 99C196 106 192 112 185 116C178 121 170 123 160 124L158 194C158 207 152 216 144 218C137 220 130 216 128 209C127 206 127 202 127 197L129 127L114 129C110 157 103 177 92 191C81 205 69 212 57 214C48 216 41 213 38 207C34 199 36 191 43 185C48 181 55 178 61 174C74 166 82 153 86 135C87 131 87 128 88 126C82 128 75 131 69 134C61 138 55 139 50 136C45 133 44 128 46 122C49 115 60 109 77 104Z"/>
+  </g>
+
+  <g filter="url(#dotGlow)">
+    <circle cx="196" cy="78" r="15.8" fill="url(#teal)" stroke="#84fff5" stroke-width="1.4"/>
+    <ellipse cx="191" cy="72" rx="7.5" ry="4" fill="#ffffff" opacity=".42"/>
+  </g>
+
+  <rect x="27" y="27" width="202" height="202" rx="47" fill="none" stroke="#d8e5ea" stroke-opacity=".08" stroke-width="1"/>
+</svg>
