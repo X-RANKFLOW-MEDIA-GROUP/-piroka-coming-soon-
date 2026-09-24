@@ -1,0 +1,61 @@
+name: PIROKA Coming Soon CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: piroka-coming-soon-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validate JavaScript syntax
+        run: |
+          node --check app.js
+          node --check api/waitlist.js
+          node --check 'api/waitlist/[id].js'
+
+      - name: Validate Vercel config
+        run: node -e "JSON.parse(require('fs').readFileSync('vercel.json','utf8'))"
+
+      - name: Validate required static assets
+        run: |
+          test -s index.html
+          test -s privacy.html
+          test -s terms.html
+          test -s styles.css
+          test -s app.js
+          test -s assets/piroka-icon.svg
+          grep -q 'href="/styles.css"' index.html
+          grep -q 'src="/app.js"' index.html
+          grep -q 'src="/assets/piroka-icon.svg"' index.html
+          grep -q 'href="https://pirokaapp.com/privacy"' index.html
+          grep -q 'href="https://pirokaapp.com/terms"' index.html
+          grep -q 'href="/privacy"' terms.html
+          grep -q 'href="/terms"' privacy.html
+
+      - name: Reject tracked environment files
+        run: |
+          if git ls-files | grep -E '(^|/)\.env($|\.)' | grep -vE '(^|/)\.env\.example$'; then
+            echo "Tracked environment file detected."
+            exit 1
+          fi
